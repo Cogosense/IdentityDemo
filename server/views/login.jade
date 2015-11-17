@@ -1,0 +1,37 @@
+extends layout_min
+
+block content
+
+    h2
+        span.glyphicon.glyphicon-log-in
+        |  Login
+
+    if error.length > 0
+        // show any error messages that come back with authentication
+        .alert.alert-danger #{error}
+
+    if info.length > 0
+        // show any informational messages that come back with authentication
+        .alert.alert-info #{info}
+
+    if success.length > 0
+        // show any alert messages that come back with authentication
+        .alert.alert-success #{success}
+
+    // LOGIN/VERIFICATION FORM
+    form(method="post")
+        .form-group
+            label Email
+            input.form-control(type="email" name="email")
+        .form-group
+            label Password
+            input.form-control(type="password" name="password")
+
+        button.btn.btn-warning.btn-lg(type="submit") Login
+
+    hr
+
+    p Need an account?
+        a(href="/signup")  Signup
+    p Or
+        a(href="/forgot")  Forgot Your Password?

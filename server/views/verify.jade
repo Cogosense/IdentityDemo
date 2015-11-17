@@ -1,0 +1,37 @@
+extends layout_min
+
+block content
+
+    h2
+        span(class="glyphicon glyphicon-log-in")
+        |  Activate Account
+
+    if error.length > 0
+        // show any error messages that come back with authentication
+        div(class="alert alert-danger") #{error}
+
+    if info.length > 0
+        // show any informational messages that come back with authentication
+        div(class="alert alert-info") #{info}
+
+    if success.length > 0
+        // show any alert messages that come back with authentication
+        div(class="alert alert-success") #{success}
+
+    // LOGIN/VERIFICATION FORM
+    form(method="post")
+        div(class="form-group")
+            label Email
+            input(type="email" class="form-control" name="email")
+        div(class="form-group")
+            label Password
+            input(type="password" class="form-control" name="password")
+
+        button(type="submit" class="btn btn-warning btn-lg") Activate Account
+
+    hr
+
+    p Need an account?
+        a(href="/signup")  Signup
+    p Or
+        a(href="/forgot")  Forgot Your Password?

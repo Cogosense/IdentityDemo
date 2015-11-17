@@ -1,0 +1,45 @@
+extends layout_min
+
+block content
+
+    h2
+        span(class="glyphicon glyphicon-log-in")
+        |  Activate Account
+
+    if error.length > 0
+        // show any error messages that come back with authentication
+        div(class="alert alert-danger") #{error}
+
+    if info.length > 0
+        // show any informational messages that come back with authentication
+        div(class="alert alert-info") #{info}
+
+    if success.length > 0
+        // show any alert messages that come back with authentication
+        div(class="alert alert-success") #{success}
+
+    // ACTIVATION REMINDER
+    p You account is not active yet. You have been sent an activation
+        | email to the email address you provided when you created this
+        | account.  The email may take several minutes to arrive, click
+        | on the link in the email to activate your account so you can
+        | access 
+        strong Tapp.
+
+    P If you have not received the email, you can request that the
+        | activation email be resent.
+
+    form(method="post")
+        button(type="submit" class="btn btn-warning btn-lg") Resend Activation Email
+
+    hr
+
+    p If the email address you used is no longer active, or it was
+        | incorrectly entered, you will need to create a new account.
+
+    p Request a new account?
+        a(href="/signup")  Signup
+    p Or go
+        a(href="/")  Home
+        |.
+

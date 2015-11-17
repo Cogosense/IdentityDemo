@@ -1,0 +1,365 @@
+@media (min-width: 1600px) {
+    .container{
+        width: 1392px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .container{
+        width: 1992px;
+    }
+}
+
+body {
+    padding: 30px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    word-wrap:normal;
+}
+
+h2 {
+    margin:0 0 .5em 0;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#wrapper {
+    //display: flex;
+    margin-top: 65px;
+    margin-bottom: 40px;
+    position:relative;
+    overflow:auto
+}
+
+#bottombar {
+    background-color:#858585;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+
+.modal .modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#navbar{
+    display: flex;
+    float:left;
+}
+
+#navbar:after{
+    content:".";
+    visibility:hidden;
+    height:0;
+    clear:both;
+}
+
+.alert{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top:5px;
+}
+
+.content {
+    display: table-row;
+    float:left;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.content:after{
+    content:".";
+    visibility:hidden;
+    height:0;
+    clear:both;
+}
+
+.sidebar {
+    float:left;
+    min-height:300px;
+    height:100%;
+    max-width:300px;
+    min-width:300px;
+    padding:5px;
+}
+
+.mainarea {
+    overflow: flex;
+    margin-left: 300px;
+    background-color:#E6FFFF;
+    min-height:300px;
+    padding:5px;
+}
+
+.panel-heading a:after {
+    font-family:'Glyphicons Halflings';
+    content:"\e114";
+    float: right;
+    color: grey;
+}
+
+.panel-heading a.collapsed:after {
+    content:"\e080";
+}
+
+.form-group {
+    padding: 0 0 10px 0;
+}
+
+#configuration-form .form-group {
+    width: 100%;
+}
+
+#configuration-form select {
+    width: 100%;
+}
+
+#configuration-form input {
+    width: 100%;
+}
+
+#configuration-form .btn {
+    width: 50%;
+}
+
+#team-form .form-group {
+    width: 100%;
+}
+
+#team-form select {
+    width: 100%;
+    padding: 6px 12px;
+}
+
+#team-form input {
+    padding: 6px 12px;
+    vertical-align: middle;
+}
+
+#team-form .btn {
+    margin: 0px 10px;
+    background-color: buttonface;
+}
+
+#user-form .form-group {
+    width: 100%;
+}
+
+#user-form select {
+    width: 100%;
+    padding: 6px 12px;
+}
+
+#user-form input {
+    padding: 6px 12px;
+}
+
+#user-form .btn {
+    margin: 0px 10px;
+    background-color: buttonface;
+}
+
+#application-form .form-group {
+    width: 100%;
+}
+
+#application-form select {
+    width: 100%;
+}
+
+#application-form input {
+    width: 100%;
+}
+
+#application-form .btn {
+    width: 50%;
+}
+
+#organization-form .form-group {
+    width: 100%;
+}
+
+#organization-form select {
+    width: 100%;
+}
+
+#organization-form input {
+    width: 100%;
+}
+
+#organization-form .btn {
+    width: 50%;
+}
+
+#region-form .form-group {
+    width: 100%;
+}
+
+#region-form select {
+    width: 100%;
+}
+
+#region-form input {
+    width: 100%;
+}
+
+#region-form .btn {
+    width: 50%;
+}
+
+#user-form input {
+    width: 100%;
+}
+
+.coords-mouse-position {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#polygon-coords table {
+    border-collapse:separate;
+    border-spacing:1px;
+    background:#CCC;
+    width: 100%;
+}
+
+#polygon-coords table th {
+    background:rgba(80,120,255,0.05);
+    font-weight:600;
+    padding:10px 20px;
+    text-align:center;
+}
+
+#polygon-coords table tbody {
+    padding:0; margin:0;
+    border-collapse:collapse;
+    border-spacing:0px;
+}
+#polygon-coords table td {
+    background:#FFF;
+    padding:5px 10px;
+    text-align:center;
+}
+
+#userList {
+    position:absolute;
+}
+
+#userList table {
+    border-collapse:separate;
+    border-spacing:1px;
+    background:#CCC;
+}
+
+#userList table th {
+    background:rgba(80,120,255,0.05);
+    font-weight:600;
+    padding:10px 20px;
+    text-align:center;
+}
+
+#userList table tbody {
+    padding:0; margin:0;
+    border-collapse:collapse;
+    border-spacing:0px;
+}
+#userList table td {
+    background:#FFF;
+    padding:5px 10px;
+    text-align:center;
+}
+
+#userInfo {
+    width:250px;
+}
+
+#userInfo p {
+    padding:15px;
+    border:1px solid #CCC;
+    background:rgba(80,120,255,0.05);
+}
+
+.slider-wrapper {
+    margin: 40px 0px 0px 0px;
+}
+
+#telemetry-points-0-details .form-group {
+    margin:25px 0px 0px 0px;
+}
+
+#telemetry-points-1-details .form-group {
+    margin:25px 0px 0px 0px;
+}
+
+#telemetry-points-2-details .form-group {
+    margin:25px 0px 0px 0px;
+}
+
+.navbar-brand {
+    padding: 1px 15px;
+}
+
+.map {
+    height: 600px;
+    width: 100%;
+}
+
+.tapp-map {
+    height: 600px;
+    width: 100%;
+}
+
+fieldset.groupbox {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.groupbox {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+    bottom-margin:0;
+}
+
+.indent {
+    margin-left: 40px;
+}
+
+.backgrid th {
+    text-align: left;
+}
+
+.backgrid .button-cell {
+    text-align:center;
+}
+
+.backgrid .select-cell {
+    text-align:left;
+}
+
+.backgrid .select2-cell {
+    text-align:left;
+}
+
+.backgrid thead .apiToken {
+    text-align:center;
+}
+
+.backgrid thead .delete {
+    text-align:center;
+}
+
+.btn-spaced {
+    margin-right: 10px;
+}

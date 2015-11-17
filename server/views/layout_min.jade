@@ -1,0 +1,20 @@
+doctype html
+
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/bcsa.css')
+
+  body
+    script(src='/lib/jquery/dist/jquery.min.js')
+    script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
+
+    // Bootstrap container
+    .container
+        .row.col-sm-6.col-sm-offset-3#wrapper
+            block content
+
+        .row.col-sm-6.col-sm-offset-3#bottombar
+            | BCSA Identity Manager Console
+            | <br> (Version #{name}-#{version}) Copyright &copy; #{ config.copyright }

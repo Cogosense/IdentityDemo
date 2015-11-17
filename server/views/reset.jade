@@ -1,0 +1,37 @@
+extends layout_min
+
+block content
+
+    h2
+        span(class="glyphicon glyphicon-log-in")
+        |  Reset Password
+
+    if error.length > 0
+        // show any error messages that come back with authentication
+        div(class="alert alert-danger") #{error}
+
+    if info.length > 0
+        // show any informational messages that come back with authentication
+        div(class="alert alert-info") #{info}
+
+    if success.length > 0
+        // show any alert messages that come back with authentication
+        div(class="alert alert-success") #{success}
+
+    // RESET PASSWORD FORM
+    form(method="post")
+        div(class="form-group")
+            label New Password
+            input(type="password" class="form-control" name="password")
+        div(class="form-group")
+            label Confirm Password
+            input(type="password" class="form-control" name="confirm")
+
+        button(type="submit" class="btn btn-warning btn-lg") Update Password
+
+    hr
+
+    p Remembered your old password?
+        a(href="/login")  Login
+        |.
+

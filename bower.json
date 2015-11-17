@@ -1,0 +1,37 @@
+{
+  "name": "Bcsaid",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bitbytedog/Bcsaid",
+  "authors": [
+    "Steve Williams <steve.williams@telxio.com>"
+  ],
+  "description": "Browser cwconsole for component of BCSA Identity Manager",
+  "main": "client/main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "BCSA",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backgrid": "~0.3.5",
+    "backgrid-filter": "~0.3.5",
+    "backgrid-paginator": "~0.3.5",
+    "backgrid-select-all": "~0.3.5",
+    "backgrid-select2-cell": "~0.3.5",
+    "bootstrap": "~3.3.5",
+    "chartjs": "~1.0.2",
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.18",
+    "requirejs-plugins": "~1.0.3"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,0 +1,71 @@
+#user-profile-dialog.modal
+    .modal-dialog
+        .modal-content
+            .modal-header.bg-warning
+                button.close(type="button" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h4.modal-title
+                    span.glyphicon.glyphicon-log-in
+                    span  User Profile
+            .modal-body
+                if message.length > 0
+                    // show any messages that come back with authentication
+                    .alert.alert-info #{message}
+
+                // LOGIN FORM
+                form
+                    .form-group
+                        label(for="user-email") Email (Account Name)
+                        input.form-control#user-email(type="email" placeholder="user@example.com" value="#{user.local.email}")
+                    .form-group
+                        label(for="user-first-name") First Name
+                        input.form-control#user-first-name(type="text" placeholder="First Name" value="#{user.firstName}")
+                    .form-group
+                        label(for="user-last-name") First Name
+                        input.form-control#user-last-name(type="text" placeholder="Last Name" value="#{user.lastName}")
+                    .form-group
+                        label(for="user-password") Password
+                        input.form-control#user-password(type="password" placeholder="New Password")
+                    .form-group
+                        label(for="user-confirm") Confirm Password
+                        input.form-control#user-confirm(type="password" disabled="disabled" placeholder="Confirm Password")
+
+            .modal-footer
+                button.btn.btn-warning.btn-lg#user-change-profile(type="button" disabled="disabled") Update Profile
+                button.btn.btn-warning.btn-lg(type="button" data-dismiss='modal') Cancel
+
+script(type="text/javascript").
+    function checkMatch() {
+        var password = $("#user-password").val();
+        var confirmPassword = $("#user-confirm").val();
+
+        if (password !== confirmPassword) {
+            $("#user-confirm").removeClass("alert alert-success").addClass("alert alert-danger");
+            $("#user-change-password").prop("disabled", true);
+            return false;
+        } else {
+            $("#user-confirm").removeClass("alert alert-danger").addClass("alert alert-success");
+            $("#user-change-password").prop("disabled", false);
+            return true;
+        }
+    }
+    $("#user-password").keyup(function() {
+        var password = $("#user-password").val();
+        if (password.length >= #{ minLen }) {
+            $("#user-confirm").prop("disabled", false);
+            checkMatch();
+        } else { 
+            $("#user-confirm").prop("disabled", true);
+        }
+    });
+    $("#user-confirm").keyup(function() {
+        var password = $("#user-password").val();
+        if (password.length >= #{ minLen }) {
+            checkMatch();
+        }
+    });
+    $("#user-change-password").click(function() {
+        var password = $("#user-password").val();
+        $("##{ parent }").data("onChange")(password);
+        $('#user-passwd-dialog').modal('hide');
+    });

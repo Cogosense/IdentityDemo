@@ -1,0 +1,30 @@
+{
+    "server":{
+        "secure": true,
+        "port": 4443,
+        "privateKeyFile": "certs/key.pem",
+        "certificateFile": "certs/cert.pem",
+        "apk": "bcsa-release.apk"
+    },
+    "database":{
+        "url" : "mongodb://localhost:27017/bcsaid"
+    },
+    "smtp":{
+        "host" : "smtp.telxio.com",
+        "port" : 25,
+        "secure": false,
+        "ignoreTLS": true
+    },
+    "email":{
+        "fromEmailAddress" : "Bcsa-noreply@telxio.com",
+        "supportEmailAddress" : "support@telxio.com",
+        "passwordResetSubject": "BCSA Password Reset Instructions",
+        "passwordChangedSubject": "Your BCSA Password Has Been Changed",
+        "activateAccountSubject": "Activate Your BCSA Account",
+        "welcomeSubject": "Welcome To the BCSA Portal",
+        "profileUpdatedSubject": "Your BCSA Account Has Been Updated"
+    },
+    "view": {
+        "copyright": "BC Safety Authority"
+    }
+}

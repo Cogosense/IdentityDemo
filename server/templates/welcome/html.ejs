@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Alerts e.g. approaching your limit</title>
+<link href="styles.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/EmailMessage">
+
+<table class="body-wrap">
+    <tr>
+        <td></td>
+        <td class="container" width="600">
+            <div class="content">
+                <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="alert alert-info">
+                            <img src="http://www.safetyauthority.ca/sites/all/themes/safetyauthority/images/logo-safetyauthority.png" wi    dth="100" border="0" style="display: inline; float: left;" />
+                            Your BCSA account is now active.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="content-wrap">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="content-block">
+                                        Hi <%= firstName %>,
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        Your email address <%= email %> is required in the event that
+                                        you forget your password. A password reset link will be sent
+                                        to this address. If you change email addresses, make sure you
+                                        update the email address associated with your BCSA account.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        In the event you lose access to your email account and you
+                                        forget your password, you will not be able to gain access to
+                                        your existing BCSA account and will have to create a new one.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        Our support team is ready to help answer any questions you may
+                                        have and can be reached by email at 
+                                        <a href="mailto:<%= supportEmailAddress %>"><%= supportEmailAddress %></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        Thanks for using the BCSA service<br>
+                                        The BCSA Team
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <div class="footer">
+                    <table width="100%">
+                        <tr>
+                            <td class="aligncenter content-block">This email was sent by <a href="<%= homeUrl %>">BCSA</a> in response to an account activation request.</td>
+                        </tr>
+                    </table>
+                </div></div>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+</body>
+</html>

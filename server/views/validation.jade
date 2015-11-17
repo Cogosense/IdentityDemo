@@ -1,0 +1,12 @@
+h1= message
+p The following errors were detecteded in the record sent to the server.
+table
+    thead
+        tr
+            th(style="padding:5px 10px 5px 5px;") Path
+            th(style="padding:5px 10px 5px 5px;") Error message
+    tbody
+        for error in errors
+            tr
+                td(style="padding:5px 10px 5px 5px;") #{ error.path }
+                td(style="padding:5px 10px 5px 5px;") #{ error.message }

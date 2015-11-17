@@ -1,0 +1,7 @@
+*.apk
+.DS_Store
+node_modules
+data
+public
+npm-debug.log
+client/lib

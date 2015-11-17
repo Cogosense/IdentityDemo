@@ -1,0 +1,28 @@
+#show-token-dialog.modal
+    .modal-dialog
+        .modal-content
+            .modal-header.bg-warning
+                button.close(type="button" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h4.modal-title
+                    span.glyphicon.glyphicon-eye-open
+                    span  Remote Team Server API Token
+            .modal-body
+                if message.length > 0
+                    // show any messages that come back with authentication
+                    .alert.alert-info #{message}
+
+                // Display API Token
+                form
+                    .form-group
+                        label(for="organization-id") Organization Identifier
+                        input.form-control#organization-id(type="text" readonly value="#{ oid }")
+                    .form-group
+                        label(for="team-id") Team Identifier
+                        input.form-control#team-id(type="text" readonly value="#{ tid }")
+                    .form-group
+                        label(for="api-token") API Token
+                        input.form-control#api-token(type="text" readonly value="#{ token }")
+
+            .modal-footer
+                button.btn.btn-warning.btn-lg(type="button" data-dismiss='modal') Done

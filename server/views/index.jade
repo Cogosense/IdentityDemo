@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    if env === 'dev'
+        script(data-main="js/console/main" src="/lib/requirejs/require.js")
+    else
+        script(data-main="js/console.min" src="/lib/requirejs/require.js")
+
+    #main.panel-group
+        #panelMain1.panel.panel-default
+
+            // Management - Admins only
+            if superAdmin
+                .panel-heading
+                    h4.panel-title
+                        a.collapsed(data-toggle="collapse" data-target="#mainConfiguration" href="#mainConfiguration")
+                            | Permissions
+                #mainConfiguration.panel-collapse.collapse
+                    .panel-body
+                        include permissions.jade
+
+                .panel-heading
+                    h4.panel-title
+                        a.collapsed(data-toggle="collapse" data-target="#mainApplication" href="#mainApplication")
+                            | Roles
+                #mainApplication.panel-collapse.collapse
+                    .panel-body
+                        include roles.jade
+
+                .panel-heading
+                    h4.panel-title
+                        a.collapsed(data-toggle="collapse" data-target="#mainUser" href="#mainUser")
+                            | Users
+                #mainUser.panel-collapse.collapse.in
+                    .panel-body
+                        include users.jade
+            else
+                include profileDialog.jade

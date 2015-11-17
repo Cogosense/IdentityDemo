@@ -1,0 +1,12 @@
+{
+    "server":{
+        "secure": false,
+        "port": 4443
+    },
+    "smtp":{
+        "host" : "smtp.telxio.com",
+        "port" : 25,
+        "secure": false,
+        "ignoreTLS": true
+    }
+}

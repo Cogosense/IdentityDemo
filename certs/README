@@ -1,0 +1,18 @@
+SSL Certs for DEV
+=================
+
+Create development keys for a server running on host
+
+./create_dev_keys <hostname>
+
+hostname must be resolvable by the client device DNS, if it isn't use the IP address
+of the DEV machine instead.
+
+Production certs
+================
+
+Decrypt the production key with the following command:
+
+    openssl rsa -in tapptrak-encrypted.key -out bcsa.key
+
+You will need the encryption password.

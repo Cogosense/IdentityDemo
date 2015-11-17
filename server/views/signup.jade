@@ -1,0 +1,48 @@
+extends layout_min
+
+block content
+
+    h2
+        span.glyphicon.glyphicon-log-in
+        |  Signup
+
+    if error.length > 0
+        // show any error messages that come back with authentication
+        .alert.alert-danger #{error}
+
+    if info.length > 0
+        // show any informational messages that come back with authentication
+        .alert.alert-info #{info}
+
+    if success.length > 0
+        // show any alert messages that come back with authentication
+        .alert.alert-success #{success}
+
+    // LOGIN FORM
+    form(action="/signup" method="post")
+        .form-group
+            label(for="user-email") Email
+            input.form-control#user-email(type="email" name="email")
+        .form-group
+            label(for="user-first-name") First Name
+            input.form-control#user-first-name(type="text" name="firstName")
+        .form-group
+            label(for="user-last-name") Last Name
+            input.form-control#user-last-name(type="text" name="lastName")
+        .form-group
+            label(for"user-password") Password
+            input.form-control#user-password(type="password" name="password")
+        .form-group
+            label(for="user-confirm") Confirm Password
+            input.form-control#user-confirm(type="password" name="confirm")
+
+        button(type="submit" class="btn btn-warning btn-lg") Signup
+
+    hr
+
+    p Already have an account?
+        a(href="/login")  Login
+    p Or go
+        a(href="/")  home
+        |.
+

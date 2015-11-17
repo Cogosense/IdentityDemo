@@ -1,0 +1,14 @@
+usage()
+{
+    echo
+    echo "create_dev_keys <hostname>"
+    echo
+}
+
+if [ x$# != "x1" ] ; then
+    echo "error: provide hostname as first argument"
+    usage
+    exit 2
+fi
+
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=$1"

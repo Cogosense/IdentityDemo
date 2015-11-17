@@ -1,0 +1,93 @@
+doctype html
+
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/lib/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css')
+        link(rel='stylesheet', href='/lib/backgrid/lib/backgrid.min.css')
+        link(rel='stylesheet', href='/lib/backgrid-select-all/backgrid-select-all.min.css')
+        link(rel='stylesheet', href='/lib/backgrid-paginator/backgrid-paginator.min.css')
+        link(rel='stylesheet', href='/lib/backgrid-filter/backgrid-filter.min.css')
+        link(rel='stylesheet', href='/lib/select2/select2.css')
+        link(rel='stylesheet', href='/lib/select2/select2-bootstrap.css')
+        link(rel='stylesheet', href='/lib/backgrid-select2-cell/backgrid-select2-cell.min.css')
+        link(rel='stylesheet', href='/stylesheets/bcsa.css')
+
+  body
+    // Bootstrap container
+    .container
+        .row#navbar
+            nav(class="navbar navbar-default navbar-fixed-top")
+                div(class="container-fluid")
+                    // group brand and toggle for better mobile display
+                    div(class="navbar-header")
+                        button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+                            span(class="sr-only") Toggle Navigation
+                            span(class="icon-bar")
+                            span(class="icon-bar")
+                            span(class="icon-bar")
+                        a(class="navbar-brand" href="#")
+                            img(src="./images/logo_48x48.png")
+
+                    // Toggled content (links, forms and dropdowns))
+                    div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+                        ul.nav.navbar-nav
+                            #alerts
+                                div(class="alert alert-success alert-dismissible fade" role="alert")
+                                    button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                                        span(aria-hidden="true") &times;
+                                    strong Welcome:
+                                    |  notifications will appear here, click on the 'x' to dismiss
+                        ul.nav.navbar-nav.navbar-right
+                            li.dropdown
+                                a(href='#' class="dropdown-toggle" data-toggle="dropdown")
+                                    span(class="glyphicon glyphicon-cog") Profile
+                                    span(class="caret")
+                                ul(class="dropdown-menu")
+                                    li
+                                        a#user-profile-settings(href='#') Settings Client Side
+                                        a(href='/profile') Settings Server Side
+                                    li(class="divider")
+                                    li
+                                        a(href="/logout") Logout
+
+        .row#wrapper
+            #dialog-ok-alert(class="modal fade")
+                .modal-dialog(class="modal-lg")
+                    .modal-content
+                        .modal-header(class="bg-success")
+                            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                            h4(class="modal-title") Success
+                        .modal-body
+            #dialog-info-alert(class="modal fade")
+                .modal-dialog(class="modal-lg")
+                    .modal-content
+                        .modal-header(class="bg-info")
+                            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                            h4(class="modal-title") Information
+                        .modal-body
+            #dialog-warn-alert(class="modal fade")
+                .modal-dialog(class="modal-lg")
+                    .modal-content
+                        .modal-header(class="bg-warning")
+                            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                            h4(class="modal-title") Warning
+                        .modal-body
+            #dialog-err-alert(class="modal fade")
+                .modal-dialog(class="modal-lg")
+                    .modal-content
+                        .modal-header(class="bg-danger")
+                            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                            h4(class="modal-title") Error
+                        .modal-body
+
+            block content
+
+        .row#bottombar
+            | BCSA Identity Manager Console
+            | <br> (Version #{name}-#{version}) Copyright &copy; #{ config.copyright }
