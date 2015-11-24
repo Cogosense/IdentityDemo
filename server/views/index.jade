@@ -13,17 +13,17 @@ block content
             if superAdmin
                 .panel-heading
                     h4.panel-title
-                        a.collapsed(data-toggle="collapse" data-target="#mainConfiguration" href="#mainConfiguration")
+                        a.collapsed(data-toggle="collapse" data-target="#mainPermission" href="#mainPermission")
                             | Permissions
-                #mainConfiguration.panel-collapse.collapse
+                #mainPermission.panel-collapse.collapse
                     .panel-body
                         include permissions.jade
 
                 .panel-heading
                     h4.panel-title
-                        a.collapsed(data-toggle="collapse" data-target="#mainApplication" href="#mainApplication")
+                        a.collapsed(data-toggle="collapse" data-target="#mainRole" href="#mainRole")
                             | Roles
-                #mainApplication.panel-collapse.collapse
+                #mainRole.panel-collapse.collapse
                     .panel-body
                         include roles.jade
 

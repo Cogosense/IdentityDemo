@@ -115,47 +115,44 @@ exports.update = function(req, res, next) {
     var uid = req.params.user_id;
     debug('updating user: ' + uid + " with body: " + JSON.stringify(req.body));
 
-    /*
-     * Normalize user data
-     */
-    var email = req.body.username.trim();
-    var password = req.body.password;
-    var username = email.toLowerCase();
-    var firstName = req.body.firstName.trim();
-    var lastName = req.body.lastName.trim();
-    req.body.username = username;
-    req.body.firstName = firstName;
-    req.body.lastName = lastName;
+    User.findById(uid, function(err, user) {
+        /*
+         * Normalize user data
+         */
+        var email = req.body.username.trim();
+        var password = req.body.password;
+        var username = email.toLowerCase();
+        var firstName = req.body.firstName.trim();
+        var lastName = req.body.lastName.trim();
+        user.username = username;
+        user.firstName = firstName;
+        user.lastName = lastName;
+        // set the user's local credentials
+        user.local.email = email;
+        if(password && password.length !== 0)
+            user.local.password = user.generateHash(password);
 
-    // set the user's local credentials
-    req.body.local = {
-        email: email
-    };
+        /*
+         * User names must be unique, so check uniqueness first.
+         *
+         * Note: the schema checks for this, so we just allow Mongo to
+         *       return an error and catch it
+         */
+        user.save(function(err, user) {
+            // handle any errors
+            if(err) {
+                if(err.code === 11000)
+                    return rest.respond_error(res, 1001, '"' + req.body.username + '" already exists: pick a different name and try again');
+                else
+                    return next(err);
+            }
 
-    if(password && password.length !== 0) {
-        req.body.local.password = User.generateHash(password);
-    }
-
-    /*
-     * User names must be unique, so check uniqueness first.
-     *
-     * Note: the schema checks for this, so we just allow Mongo to
-     *       return an error and catch it
-     */
-    User.findByIdAndUpdate(uid, req.body, function(err, user) {
-        // handle any errors
-        if(err) {
-            if(err.code === 11000)
-                return rest.respond_error(res, 1001, '"' + req.body.username + '" already exists: pick a different name and try again');
-            else
-                return next(err);
-        }
-
-        if(!user) {
-            rest.respond_error(res, 1002, 'user with ObjectId "' + uid + '" no longer exists, refresh the browser and retry the update');
-        } else {
-            rest.respond_ok(res, 0, 'User "' + user.username + '" updated');
-        }
+            if(!user) {
+                rest.respond_error(res, 1002, 'user with ObjectId "' + uid + '" no longer exists, refresh the browser and retry the update');
+            } else {
+                rest.respond_ok(res, 0, 'User "' + user.username + '" updated');
+            }
+        });
     });
 };
 

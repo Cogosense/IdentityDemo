@@ -31,7 +31,12 @@ requirejs.config({
     },
     paths: {
         /*
-         * nbower modules
+         * requirejs modules
+         */
+        json: '../../lib/requirejs-plugins/src/json',
+        text: '../../lib/requirejs-plugins/lib/text',
+        /*
+         * bower modules
          */
         jquery: '../../lib/jquery/dist/jquery',
         bootstrap: '../../lib/bootstrap/dist/js/bootstrap',
