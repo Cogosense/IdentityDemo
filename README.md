@@ -1,24 +1,45 @@
-First Responder Tracking Application Central Server Operations Console
-======================================================================
+BCSA Identity Management Portal
+===============================
 
 Introduction
 ------------
 
-The central server application is a NodeJS application that is used to manage
-the First Responder Tracking App customer base.
+Identity Management
+--------------------
+The BCSA identity management portal demonstrates the use of MongoDB, passport, express and
+backbone to implement an onboarding portal with the following features:
+
+1. Signup
+2. Email address verification
+3. Account activation
+4. Login
+5. Lost password retrival
+6. Administrative functions
+
+Business Rules
+--------------
+The identity management portal also demonstrates the use of require.js to load table schema
+and validation rules.
+
+Table schemata are kept in a mongodb collection and business rules are stored as JS functions
+in the validationRepo (in this implementation they are JS files, in a production implementation
+the validationRepo would be implemented with GOT and NodeGIT).
+
+The client depends on the necessary schema to force download with requirejs. The schema is then
+parsed for validation function names which are then used to create dynamic dependencies, forcing
+the validation rules to be downloaded before the app starts.
 
 Role
 ----
 
-1. Create accounts for operations personnel
-2. Define geographic regions to subset the OSM GIS dataset into more manageable regional datasets.
-3. Create and authorise Organization accounts (regional servers)
-4. Associate licensed regionsal GIS datasets to organizations.
+1. Create accounts for BCSA customers
+2. Create permissions for authorization checks
+3. Create roles (as groups of permissions) that are assigned to accounts
 
 Technology
 ----------
 
-The database is MongoDB, the server is implemented in NodeJS and the client app is implemented using javascript, jQuery, Bootstrap and OpenLayers3.
+The database is MongoDB, the server is implemented in NodeJS and the client app is implemented using javascript, jQuery, Bootstrap and backbone
 
 Prerequisites
 -------------
@@ -37,36 +58,42 @@ Use MacPorts to install mongodb
 
 If MacPorts is not already installed, follow the instructions at https://www.macports.org/install.php to install MacPorts.
 
+Organization
+------------
+
+bin    - this directory contains the server app loader www
+certs  - this directory contains SSL certs for https
+client - this directory contains the client side code which is copied by grunt to the public directory in order to be served by the express app.
+config - this directory contains the environment specific config files 
+server - this directory contains the server side code
+validationRepo - this directory contains the business rules as code snippets (in production this would be a GIT repo)
+
 Developing
 ----------
 
 Install NodeJS and MongoDB on the development machine first.
 
-1. Checkout Tapp-cs
+1. Change directory to the checked out repo
 
-    `git clone https://github.com/bitbytedog/Tapp-cs.git Tapp-cs`
+    `cd ../Bcsaid`
 
-2. Change directory to the checked out repo
-
-    `cd ../Tapp-cs`
-
-3. Make the database directory
+2. Make the database directory
 
     `mkdir data`
 
-4. in a seperate terminal run MongoDB
+3. in a seperate terminal run MongoDB
 
     `mongod --dbpath=$PWD/data`
 
-5. Install the node dependencies
+4. Install the node dependencies
 
     `npm install`
 
-6. Install the client side dependencies
+5. Install the client side dependencies
 
     `bower install`
 
-7. Build and start the browser client
+6. Build and start the browser client
 
     `grunt dev`
 
@@ -74,7 +101,7 @@ Grunt will monitor the _./client_ directory for changes and copy them to the _./
 __livereload__ plugin for browsers is supported, so if it is installed the browser will be
 updated everytime the _./public_ directory is updated.
 
-8. In a seperate terminal run the tapp=cs app
+7. In a seperate terminal run the BCSA id app
 
     `nodemon -w server ./bin/www`
 
@@ -84,32 +111,3 @@ on changes.
 9. Refresh the browser manually if necessary to display the login page. You should also be able
 to connect the livereload client now.
 
-
-Manual Installation
--------------------
-
-Install NodeJS and MongoDB on the development machine first.
-
-Instructions are for Centos7
-
-1. Add a user to run the app
-
-    `useradd -m tapp`
-
-2. Set a password for _tapp_ and log in as _tapp_
-3. Checkout LocationTracking
-
-    `git clone https://github.com/KAT5Networks/LocationTracking.git`
-
-4. Change directory to _tapp-cs_ and install required node modules
-
-    `cd LocationTracking/tapp-cs && npm install && bower install && grunt production`
-
-5. Start the app
-
-    `npm start`
-
-Packaging
-----------
-
-This application is packaged as part of the Tapp project.

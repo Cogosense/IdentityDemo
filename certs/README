@@ -13,6 +13,6 @@ Production certs
 
 Decrypt the production key with the following command:
 
-    openssl rsa -in tapptrak-encrypted.key -out bcsa.key
+    openssl rsa -in encrypted.key -out bcsa.key
 
 You will need the encryption password.
