@@ -1,12 +1,9 @@
-BCSA Identity Management Portal
-===============================
+# IdentityDemo Management Portal
 
-Introduction
-------------
+## Introduction
 
-Identity Management
---------------------
-The BCSA identity management portal demonstrates the use of MongoDB, passport, express and
+### Identity Management
+The identity management portal demonstrates the use of MongoDB, passport, express and
 backbone to implement an onboarding portal with the following features:
 
 1. Signup
@@ -16,33 +13,29 @@ backbone to implement an onboarding portal with the following features:
 5. Lost password retrival
 6. Administrative functions
 
-Business Rules
---------------
+### Business Rules
 The identity management portal also demonstrates the use of require.js to load table schema
 and validation rules.
 
 Table schemata are kept in a mongodb collection and business rules are stored as JS functions
 in the validationRepo (in this implementation they are JS files, in a production implementation
-the validationRepo would be implemented with GOT and NodeGIT).
+the validationRepo would be implemented with GIT and NodeGIT).
 
 The client depends on the necessary schema to force download with requirejs. The schema is then
 parsed for validation function names which are then used to create dynamic dependencies, forcing
 the validation rules to be downloaded before the app starts.
 
-Role
-----
+## Role
 
-1. Create accounts for BCSA customers
+1. Create accounts for customers
 2. Create permissions for authorization checks
 3. Create roles (as groups of permissions) that are assigned to accounts
 
-Technology
-----------
+## Technology
 
 The database is MongoDB, the server is implemented in NodeJS and the client app is implemented using javascript, jQuery, Bootstrap and backbone
 
-Prerequisites
--------------
+## Prerequisites
 
 ### On centos7
 
@@ -58,8 +51,7 @@ Use MacPorts to install mongodb
 
 If MacPorts is not already installed, follow the instructions at https://www.macports.org/install.php to install MacPorts.
 
-Organization
-------------
+## Organization
 
 bin    - this directory contains the server app loader www
 certs  - this directory contains SSL certs for https
@@ -68,14 +60,13 @@ config - this directory contains the environment specific config files
 server - this directory contains the server side code
 validationRepo - this directory contains the business rules as code snippets (in production this would be a GIT repo)
 
-Developing
-----------
+## Developing
 
 Install NodeJS and MongoDB on the development machine first.
 
 1. Change directory to the checked out repo
 
-    `cd ../Bcsaid`
+    `cd ../IdentityDemo`
 
 2. Make the database directory
 
@@ -101,7 +92,7 @@ Grunt will monitor the _./client_ directory for changes and copy them to the _./
 __livereload__ plugin for browsers is supported, so if it is installed the browser will be
 updated everytime the _./public_ directory is updated.
 
-7. In a seperate terminal run the BCSA id app
+7. In a seperate terminal run the IdentityDemo app
 
     `nodemon -w server ./bin/www`
 
